@@ -6,9 +6,10 @@ Every note becomes a star. Links become faint constellation lines. Dense corners
 knowledge glow brighter, your most-linked notes burn white-hot, and the whole disk turns
 slowly in 3D. Hover a star to see what it is; click it to open the note in Obsidian.
 
-![Astral Palace across two monitors](docs/hero.jpg)
+![Searching the galaxy and flying to a note](docs/demo.webp)
 
-<sub>Shown with the bundled demo vault: about 440 science & astronomy notes.</sub>
+<sub>Search, fly, follow: shown with the bundled demo vault of about 440 science & astronomy notes.
+[Full video with hover and the intro (MP4, 42 s)](docs/demo.mp4)</sub>
 
 ## Features
 
@@ -30,6 +31,8 @@ slowly in 3D. Hover a star to see what it is; click it to open the note in Obsid
   windows cover (on Hyprland).
 - **Optional Omarchy theme**, also called Astral Palace. It recolours your terminals, bar and apps
   to match, and starts or stops the galaxy as you switch themes.
+
+![Astral Palace across two monitors](docs/hero.jpg)
 
 ![A note's constellation lit up on hover](docs/constellation.jpg)
 
