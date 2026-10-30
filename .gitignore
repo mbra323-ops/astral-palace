@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+# Obsidian creates this when you open the demo vault
+demo-vault/.obsidian/
+demo-vault/.trash/

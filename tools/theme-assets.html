@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Astral Palace — theme assets</title>
+<!-- Rendered with headless Chromium into the Omarchy theme's preview.png,
+     unlock.png and preview-unlock.png. ?view=desktop | logo | unlock -->
+<style>
+  :root {
+    --bg:#15171f; --darker:#07080d; --lighter:#20222e; --selection:#2b2f42; --muted:#5f6370;
+    --fg:#e4e1db; --dim:#828593; --bright:#faf6ef; --accent:#f0b871;
+    --red:#f0a9a2; --orange:#e9b089; --yellow:#e5cb8d; --green:#91cea6;
+    --cyan:#78cddc; --blue:#a3bdf5; --magenta:#cfafe7;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 100%; height: 100%; background: transparent; }
+  .mono { font-family: "JetBrainsMono Nerd Font", monospace; }
+
+  /* ---------- desktop preview (1800x1012) ---------- */
+  .desk { position: relative; width: 1800px; height: 1012px; overflow: hidden;
+          background: url("../theme/astral-palace/backgrounds/01-astral-palace.jpg") center 100% / 130% auto #030306; }
+  .bar { position: absolute; inset: 0 0 auto 0; height: 24px; display: flex; align-items: center; gap: 16px;
+         padding: 0 14px; background: var(--bg); color: var(--fg); font-size: 12px; }
+  .bar .ws span { margin-right: 10px; color: var(--muted); }
+  .bar .ws span.on { color: var(--accent); }
+  .bar .mid { margin: 0 auto; }
+  .bar .right { color: var(--dim); }
+  .win { position: absolute; background: rgba(21,23,31,.97); border: 2px solid rgba(58,61,74,.6); }
+  .win.active { border-color: #d8b890; }
+  .term { left: 10px; top: 590px; width: 780px; height: 412px; padding: 16px 18px; color: var(--fg);
+          font-size: 13.5px; line-height: 1.6; }
+  .note { left: 800px; top: 590px; width: 990px; height: 412px; padding: 0; color: var(--fg);
+          font-family: "Noto Sans", sans-serif; font-size: 14px; display: grid; grid-template-columns: 230px 1fr; }
+  .note .tree { background: var(--darker); padding: 16px 14px; color: var(--dim); font-size: 13px; line-height: 1.9; }
+  .note .tree .on { color: var(--fg); background: var(--selection); margin: 0 -14px; padding: 0 14px; }
+  .note .doc { padding: 26px 34px; line-height: 1.7; }
+  .note h1 { font-weight: 600; font-size: 24px; color: var(--bright); margin-bottom: 4px; }
+  .note .meta { color: var(--dim); font-size: 12px; margin-bottom: 16px; letter-spacing: .5px; }
+  .note h2 { font-size: 16px; color: var(--accent); margin: 16px 0 6px; font-weight: 600; }
+  .note .link { color: var(--accent); }
+  .note .tag { color: var(--blue); }
+  .note code { background: var(--lighter); padding: 1px 5px; border-radius: 3px; color: var(--orange); font-size: 13px; }
+  .note blockquote { border-left: 3px solid var(--magenta); padding-left: 12px; color: var(--dim); margin: 10px 0; }
+  .btop { left: 900px; top: 604px; width: 890px; height: 398px; padding: 12px 16px; color: var(--fg); font-size: 12.5px; line-height: 1.55; }
+  .btop .box { border: 1px solid var(--muted); padding: 6px 10px; margin-bottom: 8px; }
+  .btop .t { color: var(--accent); }
+  .meter { display: inline-block; height: 9px; vertical-align: 0; background: linear-gradient(90deg, var(--green), var(--yellow) 60%, var(--red)); }
+  .c-red{color:var(--red)} .c-green{color:var(--green)} .c-yellow{color:var(--yellow)} .c-blue{color:var(--blue)}
+  .c-magenta{color:var(--magenta)} .c-cyan{color:var(--cyan)} .c-orange{color:var(--orange)} .c-muted{color:var(--muted)}
+  .c-accent{color:var(--accent)} .c-dim{color:var(--dim)}
+  .cursor { display: inline-block; width: 9px; height: 16px; background: var(--accent); vertical-align: -3px; }
+
+  /* ---------- logo (unlock.png, transparent) ---------- */
+  .logo { width: 560px; height: 290px; display: grid; place-items: center; position: relative; }
+  .logo svg { position: absolute; inset: 0; }
+  .logo .word { position: relative; text-align: center; font-family: "Noto Sans", sans-serif; color: #f6e7cf; }
+  .logo .word b { display: block; font-weight: 300; font-size: 50px; letter-spacing: 15px; margin-right: -15px;
+                  text-shadow: 0 0 24px rgba(240,184,113,.45); }
+  .logo .word i { display: block; font-style: normal; font-size: 12px; letter-spacing: 7px; margin-top: 6px;
+                  color: rgba(240,184,113,.75); }
+
+  /* ---------- unlock preview (1920x1080) ---------- */
+  .unlock { width: 1920px; height: 1080px; background: var(--bg); display: grid; place-items: center; }
+  .unlock .stack { display: grid; justify-items: center; gap: 40px; }
+  .pw { width: 270px; height: 40px; border: 1.5px solid var(--accent); display: flex; align-items: center;
+        padding: 0 14px; color: var(--fg); letter-spacing: 4px; font-size: 18px; gap: 18px; }
+  .pw svg { flex: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<template id="desktop">
+  <div class="desk">
+    <div class="bar mono"><div class="ws"><span>1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span></div>
+      <div class="mid">Friday 15:58</div><div class="right">󰂯  󰖩  󰕾  󰁹 87%</div></div>
+
+    <div class="win term active mono">
+      <div><span class="c-accent">~/vaults/demo-vault</span> <span class="c-muted">on</span> <span class="c-magenta"> main</span></div>
+      <div><span class="c-green">❯</span> eza --icons</div>
+      <div><span class="c-blue"> Archive</span>  <span class="c-blue"> Astronomy</span>  <span class="c-blue"> Biology</span>  <span class="c-blue"> Chemistry</span></div>
+      <div><span class="c-blue"> Cosmology</span>  <span class="c-blue"> Journal</span>  <span class="c-blue"> People</span>  <span class="c-blue"> Physics</span></div>
+      <div><span class="c-green">❯</span> git log --oneline --graph -5</div>
+      <div><span class="c-red">*</span> <span class="c-orange">4e1c9a2</span> <span class="c-cyan">(HEAD → main)</span> Journal: Jupiter and the Galilean moons</div>
+      <div><span class="c-red">*</span> <span class="c-orange">b37d015</span> Cosmology: Hubble tension notes</div>
+      <div><span class="c-green">|\</span></div>
+      <div><span class="c-green">|</span> <span class="c-magenta">*</span> <span class="c-orange">90af6e3</span> Reading: Black Holes and Time Warps</div>
+      <div><span class="c-green">|/</span></div>
+      <div><span class="c-red">*</span> <span class="c-orange">1d2f8bc</span> Archive: Steady State Theory</div>
+      <br>
+      <div><span class="c-green">❯</span> ls Journal | wc -l</div>
+      <div>137</div>
+      <div><span class="c-green">❯</span> <span class="cursor"></span></div>
+    </div>
+
+    <div class="win note">
+      <div class="tree">
+        <div>▸ Archive</div><div>▾ Astronomy</div>
+        <div class="on">&nbsp;&nbsp;&nbsp;&nbsp;Black Holes</div><div>&nbsp;&nbsp;&nbsp;&nbsp;Event Horizon</div>
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;Neutron Stars</div><div>▸ Cosmology</div><div>▸ Journal</div>
+        <div>▸ People</div><div>▸ Physics</div><div>▸ Reading</div>
+      </div>
+      <div class="doc">
+        <h1>Black Holes</h1>
+        <div class="meta">ASTRONOMY — 13 LINKS</div>
+        <p>Regions of spacetime where gravity prevents anything, even light, from escaping.
+           Predicted by <span class="link">[[General Relativity]]</span>; imaged by the <span class="link">[[Event Horizon Telescope]]</span>.</p>
+        <h2>Related</h2>
+        <p>▸ <span class="link">[[Event Horizon]]</span> &nbsp; ▸ <span class="link">[[Accretion Disk]]</span> &nbsp; ▸ <span class="link">[[Hawking Radiation]]</span></p>
+        <blockquote>Part of the Astronomy map of content.</blockquote>
+        <p>Click its star on the desktop to jump straight back here. <span class="tag">#astronomy</span></p>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="logo">
+  <div class="logo">
+    <svg viewBox="0 0 560 290" width="560" height="290">
+      <defs>
+        <linearGradient id="g" x1="0" x2="1">
+          <stop offset="0" stop-color="#a3bdf5" stop-opacity=".0"/>
+          <stop offset=".25" stop-color="#a3bdf5" stop-opacity=".55"/>
+          <stop offset=".5" stop-color="#f0b871" stop-opacity=".95"/>
+          <stop offset=".75" stop-color="#a3bdf5" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#a3bdf5" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="star"><stop offset="0" stop-color="#fff6e8"/><stop offset=".25" stop-color="#f0b871" stop-opacity=".8"/><stop offset="1" stop-color="#f0b871" stop-opacity="0"/></radialGradient>
+      </defs>
+      <ellipse cx="280" cy="145" rx="262" ry="66" fill="none" stroke="url(#g)" stroke-width="1.6" transform="rotate(-8 280 145)"/>
+      <ellipse cx="280" cy="145" rx="214" ry="44" fill="none" stroke="url(#g)" stroke-width="1" stroke-opacity=".6" transform="rotate(-8 280 145)"/>
+      <circle cx="514" cy="114" r="16" fill="url(#star)"/>
+      <circle cx="88" cy="196" r="9" fill="url(#star)" opacity=".8"/>
+      <circle cx="372" cy="196" r="6" fill="url(#star)" opacity=".7"/>
+    </svg>
+    <div class="word"><b>ASTRAL</b><i>PALACE</i></div>
+  </div>
+</template>
+
+<template id="unlock">
+  <div class="unlock">
+    <div class="stack">
+      <div id="logo-slot"></div>
+      <div class="pw mono">
+        <svg width="16" height="20" viewBox="0 0 16 20"><rect x="1" y="8" width="14" height="11" rx="2" fill="#f0b871"/><path d="M4 8V5a4 4 0 0 1 8 0v3" fill="none" stroke="#f0b871" stroke-width="2"/></svg>
+        ••••
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  const view = new URLSearchParams(location.search).get("view") || "desktop";
+  const root = document.getElementById("root");
+  root.append(document.getElementById(view).content.cloneNode(true));
+  if (view === "unlock") document.getElementById("logo-slot").append(document.getElementById("logo").content.cloneNode(true));
+</script>
+</body>
+</html>

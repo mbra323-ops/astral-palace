@@ -1,0 +1,5 @@
+#!/bin/bash
+# Open (or close) the galaxy search bar. Bind this to a key, e.g. Super+Period.
+gdbus call --session --dest dev.astralpalace.AstralPalace \
+  --object-path /dev/astralpalace/AstralPalace \
+  --method org.freedesktop.Application.ActivateAction search '[]' '{}' >/dev/null 2>&1

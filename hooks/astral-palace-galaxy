@@ -1,0 +1,46 @@
+#!/bin/bash
+# Omarchy hook (theme-set + post-boot) for the Astral Palace theme. install.sh fills
+# in the @...@ values and installs it with `omarchy hook install`.
+#   - runs the live galaxy wallpaper only while Astral Palace is the active theme
+#   - optionally turns on Chromium's auto-dark for web pages while it's active
+#     (takes effect the next time Chromium starts)
+# theme-set passes the new theme slug as $1; post-boot passes nothing.
+
+REPO="@REPO@"
+CHROMIUM_FORCE_DARK=@FORCE_DARK@
+
+GALAXY="$REPO/bin/astral-palace"
+PROC="^$REPO/.venv/bin/python -m galaxy.app"
+LOG="${XDG_CACHE_HOME:-$HOME/.cache}/astral-palace/galaxy.log"
+FLAGS="$HOME/.config/chromium-flags.conf"
+FEATURE=WebContentsForceDark
+
+theme="${1:-$(cat "$HOME/.local/state/omarchy/current/theme.name" 2>/dev/null)}"
+
+force_dark_on() {
+  [[ -f $FLAGS ]] || touch "$FLAGS"
+  grep -q "$FEATURE" "$FLAGS" && return
+  # Chromium only honours the last --enable-features flag, so merge into it
+  if grep -q '^--enable-features=' "$FLAGS"; then
+    sed -i "s/^--enable-features=\(.*\)$/--enable-features=\1,$FEATURE/" "$FLAGS"
+  else
+    echo "--enable-features=$FEATURE" >>"$FLAGS"
+  fi
+}
+
+force_dark_off() {
+  [[ -f $FLAGS ]] || return
+  sed -i -E "s/,$FEATURE//; s/=$FEATURE,/=/; /^--enable-features=$FEATURE\$/d" "$FLAGS"
+}
+
+if [[ $theme == astral-palace ]]; then
+  if ! pgrep -f "$PROC" >/dev/null; then
+    mkdir -p "${LOG%/*}"
+    setsid -f uwsm-app -- "$GALAXY" >"$LOG" 2>&1
+  fi
+  [[ $CHROMIUM_FORCE_DARK == 1 ]] && force_dark_on
+else
+  pkill -f "$PROC" || true
+  [[ $CHROMIUM_FORCE_DARK == 1 ]] && force_dark_off
+fi
+exit 0

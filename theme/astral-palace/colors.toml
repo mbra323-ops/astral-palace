@@ -1,0 +1,37 @@
+# Astral Palace — your Obsidian vault as a galaxy.
+# Clean balanced palette: even-lightness OKLCH hues on deep slate (softened so white pages glare less); amber accent from the galaxy core.
+
+mode = "dark"
+
+accent = "#f0b871"
+selection = "#2b2f42"
+muted = "#5f6370"
+
+# window borders: the accent amber at ~60 percent saturation, so focus reads without glaring
+hyprland_active_border = "#d8b890"
+
+background = "#15171f"
+dark_background = "#0e0f16"
+darker_background = "#07080d"
+lighter_background = "#20222e"
+
+foreground = "#e4e1db"
+dark_foreground = "#828593"
+light_foreground = "#d0cdc8"
+bright_foreground = "#faf6ef"
+
+red = "#f0a9a2"
+yellow = "#e5cb8d"
+orange = "#e9b089"
+green = "#91cea6"
+cyan = "#78cddc"
+blue = "#a3bdf5"
+magenta = "#cfafe7"
+brown = "#8c694e"
+
+bright_red = "#ffc5bf"
+bright_yellow = "#f9e3ab"
+bright_green = "#b1e7c2"
+bright_cyan = "#9ce6f3"
+bright_blue = "#bfd7ff"
+bright_magenta = "#e7cafd"

@@ -1,0 +1,32 @@
+# ~/.config/astral-palace/config.toml — only include what you change.
+# Every default lives in galaxy/config.py.
+
+[vault]
+path = "~/Documents/My Vault"   # default: the bundled demo-vault/
+# name = "My Vault"             # Obsidian's vault name; default: the folder name
+# archive_prefix = "04 - Archive"  # default: any top-level folder with "archive" in its name
+
+[camera]
+distance = 2.1            # starting zoom (smaller = closer); scroll to zoom live
+elevation_deg = 11.0      # lower = more edge-on
+spin_period = 720.0       # seconds per revolution
+center_x = 0.5            # galaxy centre across all monitors (0 = far left); drag to move live
+
+[render]
+exposure = 1.0
+bloom_strength = 0.9
+line_intensity = 0.026    # resting constellation lines
+line_hover_intensity = 0.5
+idle_fps = 30             # frame rate when you're not interacting
+
+[color]
+blue_star_fraction = 0.3  # outer-disk minor notes that burn blue-white
+
+[background]
+glow = 0.7                # faint light reaching the screen edges (0 = pure black)
+nebula = 0.8              # dusk-blue wisps in the deep sky
+
+[behaviour]
+pause_when_covered = true # Hyprland only: stop rendering monitors your windows cover
+layer = "bottom"          # "bottom" sits above most wallpaper daemons; "background" below them
+peek_timeout = 120        # search sinks back behind windows after this many idle seconds

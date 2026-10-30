@@ -1,0 +1,4 @@
+#!/bin/bash
+# Astral Palace live wallpaper. Environment setup happens in galaxy/app.py:main().
+DIR="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
+cd "$DIR" && exec "$DIR/.venv/bin/python" -m galaxy.app "$@"
