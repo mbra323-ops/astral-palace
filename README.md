@@ -9,7 +9,7 @@ slowly in 3D. Hover a star to see what it is; click it to open the note in Obsid
 ![Searching the galaxy and flying to a note](docs/demo.webp)
 
 <sub>Search, fly, follow: shown with the bundled demo vault of about 440 science & astronomy notes.
-[Full video with hover and the intro (MP4, 42 s)](docs/demo.mp4)</sub>
+[Full video: hover, click a star to open it in Obsidian, search and fly (MP4, 32 s)](docs/demo.mp4)</sub>
 
 ## Features
 
