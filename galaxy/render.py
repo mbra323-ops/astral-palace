@@ -191,12 +191,20 @@ class Renderer:
             gl.glTexSubImage2D(gl.GL_TEXTURE_2D, 0, 0, 0, TEXW, rows, gl.GL_RGBA, gl.GL_FLOAT, data)
         self.highlight_version = s.highlight_version
 
-    def _resize(self, w, h):
+    def release_targets(self):
+        """Free the full-screen render targets, the bulk of our VRAM (~200 MB
+        per 4K monitor). The next render() reallocates them."""
         if self.hdr:
             for t in (self.hdr, self.lines, self.soft, self.bg):
                 t.delete()
         for m in self.mips:
             m.delete()
+        self.hdr = self.lines = self.soft = self.bg = None
+        self.mips = []
+        self.size = (0, 0)
+
+    def _resize(self, w, h):
+        self.release_targets()
         self.hdr = Target(w, h)
         self.lines = Target(w, h)
         self.soft = Target(max(1, w // 2), max(1, h // 2))

@@ -474,6 +474,12 @@ class MonitorSurface:
         elif not on and self.tick_id:
             self.area.remove_tick_callback(self.tick_id)
             self.tick_id = 0
+            # the last frame stays on screen (GTK keeps it); hand the
+            # scratch targets back to the GPU until we draw again
+            if self.renderer and self.area.get_realized():
+                self.area.make_current()
+                self.renderer.release_targets()
+                gl.glFlush()
 
     def on_tick(self, widget, clock):
         self.app.step(clock.get_frame_time() / 1e6)
